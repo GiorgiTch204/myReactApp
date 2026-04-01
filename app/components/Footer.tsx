@@ -1,0 +1,9 @@
+export default function Footer(){
+    return(
+        <>
+            <footer>
+                <p>&copy; 2023 My Website; All Rights Reserved</p>
+            </footer>
+        </>
+    );
+};
