@@ -1,0 +1,86 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.about{
+    padding: 40px 20px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.aboutHero{
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.aboutHero h1{
+    font-size: 36px;
+    color: #1e1e2f;
+}
+
+.aboutHero p{
+    color: #555;
+    margin-top: 10px;
+}
+
+.aboutContainer{
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.aboutCard{
+    background-color: #f4f4f4;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 300px;
+    transition: 0.3s;
+}
+
+.aboutcard:hover{
+    transform: translateY(-5px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.aboutCar h2{
+    margin-bottom: 10px;
+    color: #2a2a40;
+}
+
+.aboutCard p{
+    color: #646363;
+    font-size: 14px;
+}
+
+.aboutCTA{
+    text-align: center;
+    margin-top: 50px;
+}
+
+.aboutCTA h2{
+    margin-bottom: 10px;
+}
+
+.aboutCTA button{
+    margin-top: 10px;
+    padding: 10px 20px;
+    border: none;
+    background: #00d4ff;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.aboutCTA button:hover{
+  background: #009ec3;
+}
+
+@media (max-width: 768px){
+  .aboutContainer {
+    flex-direction: column;
+    align-items: center;
+  }
+}
