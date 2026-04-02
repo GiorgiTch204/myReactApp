@@ -1,5 +1,5 @@
 "use client";
-import "./Home.css";
+import "./mainPage.css";
 
 export default function Home() {
   return (
