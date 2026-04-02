@@ -1,9 +1,10 @@
 import Link from "next/link";
+import "./Navbar.css";
 
 export default function Navbar() {
   return (
     <>
-        <nav>
+        <nav className="navContainer">
             <ul>
                 <li>
                     <Link href="/">Home</Link>
@@ -15,10 +16,6 @@ export default function Navbar() {
 
                 <li>
                     <Link href="../pages/contact">Contact</Link>
-                </li>
-
-                <li>
-                    <link rel="stylesheet" href="">Location</link>
                 </li>
             </ul>
         </nav>

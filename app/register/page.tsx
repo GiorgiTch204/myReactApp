@@ -1,7 +1,6 @@
 "use client";
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
-import Login from "../login/page";
 
 export default function Register(){
     const [username, setUsername]=useState("");
