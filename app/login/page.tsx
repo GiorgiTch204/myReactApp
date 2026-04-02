@@ -1,6 +1,7 @@
 "use client";
 import React, {useState} from "react";
 import { useRouter } from "next/navigation";
+import "./Login.css";
 
 export default function Login(){
     const [email, setEmail]=useState("");
@@ -28,10 +29,10 @@ export default function Login(){
 
     return(
         <>
-            <main style={{padding:"20px"}}>
+            <main style={{padding:"20px"}} className="loginContainer">
                 <h2>Login</h2>
 
-                <form onSubmit={handleSubmit} style={{
+                <form onSubmit={handleSubmit} className="loginForm" style={{
                     display:"flex", 
                     flexDirection:"column", 
                     gap:"10px",
@@ -55,7 +56,7 @@ export default function Login(){
                     <button type="submit">Login</button>
                 </form>
 
-                {message && <p>{message}</p>}
+                {message && <p className="message">{message}</p>}
             </main>
         </>
     )
