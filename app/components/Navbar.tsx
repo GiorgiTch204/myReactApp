@@ -16,6 +16,10 @@ export default function Navbar() {
                 <li>
                     <Link href="../pages/contact">Contact</Link>
                 </li>
+
+                <li>
+                    <link rel="stylesheet" href="">Location</link>
+                </li>
             </ul>
         </nav>
     </>
