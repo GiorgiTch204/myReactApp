@@ -33,7 +33,7 @@ export default function RootLayout({
 
         <Header />
 
-        <main className="grow p-6">
+        <main className="flex-grow p-6">
             {children}
         </main>
 
