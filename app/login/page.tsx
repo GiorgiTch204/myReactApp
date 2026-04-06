@@ -2,6 +2,7 @@
 import React, {useState} from "react";
 import { useRouter } from "next/navigation";
 import "./Login.css";
+import Input from "../components/Input/Input";
 
 export default function Login(){
     const [email, setEmail]=useState("");
@@ -27,6 +28,21 @@ export default function Login(){
         router.push("/");
     }
 
+    const inputs=[
+        {
+            type:"email", 
+            placeholder:"email", 
+            value:email, 
+            set:setEmail
+        },
+        {
+            type:"password",
+            placeholder:"Password",
+            value:password,
+            set:setPassword 
+        }
+    ]
+
     return(
         <>
             <main style={{padding:"20px"}} className="loginContainer">
@@ -39,19 +55,15 @@ export default function Login(){
                     maxWidth:"300px"
                 }}>
 
-                    <input 
-                        type="email"
-                        placeholder="Email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                    />
-
-                    <input 
-                        type="password"
-                        placeholder="Password"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                    />
+                    {inputs.map((input, i) =>(
+                        <Input 
+                            key={i}
+                            type={input.type}
+                            placeholder={input.placeholder}
+                            value={input.value}
+                            onChange={(e) => input.set(e.target.value)}
+                        />
+                    ))}
                     
                     <button type="submit">Login</button>
                 </form>

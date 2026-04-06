@@ -2,6 +2,7 @@
 import React,{useState} from "react";
 import {useRouter} from "next/navigation";
 import "./Register.css";
+import Input from "../components/Input/Input";
 
 export default function Register(){
   const [username,setUsername]=useState("");
@@ -36,39 +37,48 @@ export default function Register(){
     router.push("/login");
   };
 
+  const inputs=[
+    {
+      type:"text", 
+      placeholder:"Username", 
+      value:username, 
+      set:setUsername
+    },
+    {
+      type:"email", 
+      placeholder:"Email", 
+      value:email, 
+      set:setEmail
+    },
+    {
+      type:"password", 
+      placeholder:"Enter Password", 
+      value:password, 
+      set:setPassword
+    },
+    {
+      type:"password", 
+      placeholder:"Confirm Password", 
+      value:confirmPassword, 
+      set:setConfirmPassword
+    },
+  ]
+
   return(
     <main className="registerContainer">
       <h2>Register</h2>
 
       <form onSubmit={handleSubmit} className="registerForm">
 
-        <input
-          type="text"
-          placeholder="Username"
-          value={username}
-          onChange={(e)=>setUsername(e.target.value)}
-        />
-
-        <input
-          type="email"
-          placeholder="Email"
-          value={email}
-          onChange={(e)=>setEmail(e.target.value)}
-        />
-
-        <input
-          type="password"
-          placeholder="Enter Password"
-          value={password}
-          onChange={(e)=>setPassword(e.target.value)}
-        />
-
-        <input
-          type="password"
-          placeholder="Confirm Password"
-          value={confirmPassword}
-          onChange={(e)=>setConfirmPassword(e.target.value)}
-        />
+        {inputs.map((input, i) =>(
+          <Input 
+            key={i}
+            type={input.type}
+            placeholder={input.placeholder}
+            value={input.value}
+            onChange={(e) => input.set(e.target.value)}
+          />
+        ))}
 
         <button type="submit">Register</button>
       </form>
