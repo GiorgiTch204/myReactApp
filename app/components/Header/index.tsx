@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import "./Header.css";
+import styles from "./Header.module.css";
 import Link from "next/link";
 
 export default function Header(){
@@ -19,7 +19,7 @@ export default function Header(){
 
     return(
         <>
-            <header className="headerContainer">
+            <header className={styles.headerContainer}>
                 <h1>My Website</h1>
 
                 <div style={{
