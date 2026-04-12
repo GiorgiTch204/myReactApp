@@ -1,9 +1,31 @@
 "use client";
 import "./mainPage.css";
+import { useEffect, useState } from "react";
+
+type User={
+  username: string;
+  email: string;
+  password: string;
+}
 
 export default function Home() {
+  const [user, setUser]=useState<User|null>(null);
+
+  useEffect(() => {
+    const currentUser=localStorage.getItem("currentUser");
+
+    if(currentUser){
+      // eslint-disable-next-line react-hooks/set-state-in-effect
+      setUser(JSON.parse(currentUser));
+    }
+  }, []);
+
   return (
     <section className="home">
+
+      <main>
+        <h1>{user ? `Welcome, ${user.username}!` : "Welcome to My Website"}</h1>
+      </main>
 
       <div className="hero">
         <h1>Welcome to My Website</h1>

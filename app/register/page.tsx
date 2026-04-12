@@ -1,7 +1,7 @@
 "use client";
 import React,{useState} from "react";
 import {useRouter} from "next/navigation";
-import "./Register.module.css";
+import styles from "./Register.module.css";
 import Input from "@/components/Input/Input";
 
 export default function Register(){
@@ -26,6 +26,14 @@ export default function Register(){
       return;
     }
 
+    const user={
+      username,
+      email,
+      password
+    };
+
+    localStorage.setItem("user", JSON.stringify(user));
+
     console.log("Registering:",{username,email,password});
     setMessage(`User ${username} Registered Successfully!`);
 
@@ -33,6 +41,8 @@ export default function Register(){
     setEmail("");
     setPassword("");
     setConfirmPassword("");
+
+    
 
     router.push("/login");
   };
@@ -65,10 +75,10 @@ export default function Register(){
   ]
 
   return(
-    <main className="registerContainer">
+    <main className={styles.registerContainer}>
       <h2>Register</h2>
 
-      <form onSubmit={handleSubmit} className="registerForm">
+      <form onSubmit={handleSubmit} className={styles.registerForm}>
 
         {inputs.map((input, i) =>(
           <Input 
@@ -79,6 +89,8 @@ export default function Register(){
             onChange={(e) => input.set(e.target.value)}
           />
         ))}
+
+        <p>Already have an account? <a href="/login" style={{fontWeight:"bold", textDecoration:"none"}}>Login</a></p>
 
         <button type="submit">Register</button>
       </form>
