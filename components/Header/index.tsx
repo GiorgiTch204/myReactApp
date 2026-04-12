@@ -3,9 +3,23 @@
 import React, { useState, useEffect } from "react";
 import styles from "./Header.module.css";
 import Link from "next/link";
+import { link } from "fs";
 
 export default function Header(){
     const [darkMode, setDarkMode]=useState(false);
+    const [isLoggedIn, setIsLoggedIn]=useState(false);
+
+    useEffect(() => {
+        const loggedIn=localStorage.getItem("isLoggedIn");
+        // eslint-disable-next-line react-hooks/set-state-in-effect
+        setIsLoggedIn(loggedIn === "true");
+    }, []);
+
+    const handleLogout=()=>{
+        localStorage.removeItem("isLoggedIn");
+        localStorage.removeItem("currentUser");
+        setIsLoggedIn(false);
+    }
 
     useEffect(() => {
         const root=document.documentElement;
@@ -22,21 +36,19 @@ export default function Header(){
             <header className={styles.headerContainer}>
                 <h1>My Website</h1>
 
-                <div style={{
-                    display:"flex",
-                    gap:"10px",
-                    alignItems:"center"
-                }}>
-
-                    <button 
-                        onClick={() => setDarkMode(!darkMode)}
-                        style={{cursor:"pointer"}}
-                    >
+                <div style={{ display:"flex",gap:"10px", alignItems:"center"}}>
+                    <button  onClick={() => setDarkMode(!darkMode)} style={{cursor:"pointer"}}>
                         {darkMode ? "☀️" : "🌙"}
                     </button>
 
-                    <Link href="/register">Register</Link>
-                    <Link href="/login">Login</Link>
+                    {isLoggedIn ? (
+                        <button onClick={handleLogout}>Logout</button>
+                    ) : (
+                        <>
+                            <Link href="/register">Register</Link>
+                            <Link href="/login">Login</Link>
+                        </>
+                    )}
                 </div>
             </header>
         </>
