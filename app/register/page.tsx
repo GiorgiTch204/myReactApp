@@ -1,8 +1,8 @@
 "use client";
 import React,{useState} from "react";
 import {useRouter} from "next/navigation";
-import "./Register.css";
-import Input from "../components/Input/Input";
+import "./Register.module.css";
+import Input from "@/components/Input/Input";
 
 export default function Register(){
   const [username,setUsername]=useState("");

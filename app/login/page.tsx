@@ -1,8 +1,8 @@
 "use client";
 import React, {useState} from "react";
 import { useRouter } from "next/navigation";
-import "./Login.css";
-import Input from "../components/Input/Input";
+import "./Login.module.css";
+import Input from "@/components/Input/Input";
 
 export default function Login(){
     const [email, setEmail]=useState("");
