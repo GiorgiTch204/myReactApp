@@ -1,9 +1,8 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import styles from "./Header.module.css";
 import Link from "next/link";
-import { link } from "fs";
 
 export default function Header(){
     const [darkMode, setDarkMode]=useState(false);
