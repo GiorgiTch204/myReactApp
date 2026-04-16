@@ -3,6 +3,7 @@ import React,{useState} from "react";
 import {useRouter} from "next/navigation";
 import styles from "./Register.module.css";
 import Input from "@/components/Input/Input";
+import { getUser } from "@/lib/auth";
 
 export default function Register(){
   const [username,setUsername]=useState("");
@@ -26,11 +27,7 @@ export default function Register(){
       return;
     }
 
-    const user={
-      username,
-      email,
-      password
-    };
+    const user=getUser();
 
     localStorage.setItem("user", JSON.stringify(user));
 
