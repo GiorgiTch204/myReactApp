@@ -50,11 +50,12 @@
 
 .message{
   margin-top:15px;
+  color: green;
 }
 
-.success{
+/* .success{
   color:green;
-}
+} */
 
 /* dark mode */
 .dark .registerForm{

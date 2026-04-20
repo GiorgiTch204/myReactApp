@@ -3,7 +3,8 @@ import React,{useState} from "react";
 import {useRouter} from "next/navigation";
 import styles from "./Register.module.css";
 import Input from "@/components/Input/Input";
-import { getUser } from "@/lib/auth";
+import { saveUser } from "@/lib/auth";
+import Link from "next/link";
 
 export default function Register(){
   const [username,setUsername]=useState("");
@@ -27,19 +28,26 @@ export default function Register(){
       return;
     }
 
-    const user=getUser();
+    const newUser={
+      username,
+      email,
+      password
+    };
 
-    localStorage.setItem("user", JSON.stringify(user));
+    saveUser(newUser);
 
     console.log("Registering:",{username,email,password});
+    
     setMessage(`User ${username} Registered Successfully!`);
+
+    setTimeout(() => {
+      router.push("/login");
+    }, 1000);
 
     setUsername("");
     setEmail("");
     setPassword("");
     setConfirmPassword("");
-
-    
 
     router.push("/login");
   };
@@ -49,25 +57,25 @@ export default function Register(){
       type:"text", 
       placeholder:"Username", 
       value:username, 
-      set:setUsername
+      onChange:setUsername
     },
     {
       type:"email", 
       placeholder:"Email", 
       value:email, 
-      set:setEmail
+      onChange:setEmail
     },
     {
       type:"password", 
       placeholder:"Enter Password", 
       value:password, 
-      set:setPassword
+      onChange:setPassword
     },
     {
       type:"password", 
       placeholder:"Confirm Password", 
       value:confirmPassword, 
-      set:setConfirmPassword
+      onChange:setConfirmPassword
     },
   ]
 
@@ -79,20 +87,23 @@ export default function Register(){
 
         {inputs.map((input, i) =>(
           <Input 
-            key={i}
+            key={input.placeholder}
             type={input.type}
             placeholder={input.placeholder}
             value={input.value}
-            onChange={(e) => input.set(e.target.value)}
+            onChange={(e) => input.onChange(e.target.value)}
           />
         ))}
 
-        <p>Already have an account? <a href="/login" style={{fontWeight:"bold", textDecoration:"none"}}>Login</a></p>
+        <p>
+          Already have an account?
+          <Link href="/login">Login</Link>
+        </p>
 
         <button type="submit">Register</button>
       </form>
 
-      {message&&<p className="message success">{message}</p>}
+      {message&&<p className={styles.message}>{message}</p>}
     </main>
   );
 }
