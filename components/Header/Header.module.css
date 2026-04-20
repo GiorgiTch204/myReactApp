@@ -38,6 +38,12 @@
   background:#009ec3;
 }
 
+.headerMainDiv{
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
 .dark{
   background-color:#121212;
   color:#ffffff;

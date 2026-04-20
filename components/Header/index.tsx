@@ -35,7 +35,7 @@ export default function Header(){
             <header className={styles.headerContainer}>
                 <h1>My Website</h1>
 
-                <div style={{ display:"flex",gap:"10px", alignItems:"center"}}>
+                <div className={styles.headerMainDiv}>
                     <button  onClick={() => setDarkMode(!darkMode)} style={{cursor:"pointer"}}>
                         {darkMode ? "☀️" : "🌙"}
                     </button>

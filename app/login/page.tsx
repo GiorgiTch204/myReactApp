@@ -3,6 +3,7 @@ import React, {useState} from "react";
 import { useRouter } from "next/navigation";
 import styles from "./Login.module.css";
 import Input from "@/components/Input/Input";
+import Link from "next/link";
 
 export default function Login(){
     const [email, setEmail]=useState("");
@@ -70,9 +71,9 @@ export default function Login(){
                     maxWidth:"300px"
                 }}>
 
-                    {inputs.map((input, i) =>(
+                    {inputs.map((input) =>(
                         <Input 
-                            key={i}
+                            key={input.placeholder}
                             type={input.type}
                             placeholder={input.placeholder}
                             value={input.value}
@@ -82,7 +83,10 @@ export default function Login(){
                     
                     <button type="submit">Login</button>
 
-                    <p>Don&apos;t have an account? <a href="/register" style={{fontWeight:"bold", textDecoration:"none"}}>Register</a></p>
+                    <p>
+                        Don&apos;t have an account? 
+                        <Link href="/register" className={styles.regBtn}>Register</Link>
+                    </p>
                 </form>
 
                 {message && <p className="message">{message}</p>}

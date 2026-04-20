@@ -30,6 +30,21 @@
   outline:none;
 }
 
+.regBtn{
+  font-weight: bold; 
+  text-decoration: none;
+}
+
+.regBtn:hover{
+  cursor: pointer;
+  color: rgb(4, 0, 255);
+}
+
+
+.regBtn:active{
+  color: darkgoldenrod;
+}
+
 .loginForm input:focus{
   border-color:#00d4ff;
 }

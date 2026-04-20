@@ -28,6 +28,13 @@ export default function Register(){
       return;
     }
 
+    const existingUser=localStorage.getItem("user");
+
+    if(existingUser){
+      setMessage("User already exists. Please login.");
+      return;
+    }
+
     const newUser={
       username,
       email,
@@ -93,7 +100,7 @@ export default function Register(){
 
         <p>
           Already have an account?{" "}
-          <Link href="/login">Login</Link>
+          <Link href="/login" className={styles.lgnBtnStyle}>Login</Link>
         </p>
 
         <button type="submit">Register</button>

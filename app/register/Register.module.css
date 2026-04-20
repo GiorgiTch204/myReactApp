@@ -57,6 +57,24 @@
   color:green;
 } */
 
+.lgnBtnStyle{
+  color: red;
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.lgnBtnStyle:hover{
+  color: blue;
+}
+
+.lgnBtnStyle:active{
+  color: darkblue;
+}
+
+
+
+
 /* dark mode */
 .dark .registerForm{
   background:#1e1e2f;
