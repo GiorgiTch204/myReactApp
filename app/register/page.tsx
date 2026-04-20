@@ -35,8 +35,6 @@ export default function Register(){
     };
 
     saveUser(newUser);
-
-    console.log("Registering:",{username,email,password});
     
     setMessage(`User ${username} Registered Successfully!`);
 
@@ -94,7 +92,7 @@ export default function Register(){
         ))}
 
         <p>
-          Already have an account?
+          Already have an account?{" "}
           <Link href="/login">Login</Link>
         </p>
 
