@@ -48,8 +48,6 @@ export default function Register(){
     setEmail("");
     setPassword("");
     setConfirmPassword("");
-
-    router.push("/login");
   };
 
   const inputs=[
