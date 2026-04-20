@@ -83,7 +83,7 @@ export default function Register(){
 
       <form onSubmit={handleSubmit} className={styles.registerForm}>
 
-        {inputs.map((input, i) =>(
+        {inputs.map((input) =>(
           <Input 
             key={input.placeholder}
             type={input.type}
